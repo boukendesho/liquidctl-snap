@@ -26,9 +26,10 @@ parts:
     plugin: python
     source-type: git
     source: https://github.com/liquidctl/liquidctl
+    source-depth: 1
     override-pull: |
-      snapcraftctl pull
-      snapcraftctl set-version \
+      craftctl default
+      craftctl set version=\
       "$(git describe --long --tags --always --match=v*.*.* | sed 's/v//')"
     stage-packages:
        - python3-usb
